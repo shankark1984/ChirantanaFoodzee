@@ -1,10 +1,48 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="login.js" defer></script>
 </head>
 <body>
-    <h1>ChirantanaFoodzee</h1>
+    <div class="container">
+        <form id="loginForm" class="login-form">
+            <!-- Logo -->
+            <div class="logo-container">
+                <img src="/assets/img/logo.png" alt="Logo" class="logo">
+            </div>
+            <h1>Login</h1>
+            <label for="username" class="label-username">Username</label>
+            <div class="input-group">
+                <input type="text" id="username" placeholder="Type your username" required>
+            </div>
+            <label for="password" class="label-password">Password</label>
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Type your password" required>
+            </div>
+            <label for="location" class="label-location">Location</label>
+            <div class="input-group">
+                <select id="location" required>
+                    <option value="">Select a location</option>
+                </select>
+            </div>
+            <div class="forgot-password">
+                <a href="#">Forgot password?</a>
+            </div>
+            <button type="submit" class="login-button">LOGIN</button>
+            <div id="message"></div>
+            <div class="signup-options">
+                <p>Or Sign Up Using</p> 
+                <div class="social-buttons">
+                    <a href="#"><img src="https://img.icons8.com/color/48/000000/facebook.png" alt="Facebook"></a>
+                    <a href="#"><img src="https://img.icons8.com/color/48/000000/twitter.png" alt="Twitter"></a>
+                    <a href="#"><img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google"></a>
+                </div>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
