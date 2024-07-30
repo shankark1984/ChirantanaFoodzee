@@ -75,7 +75,7 @@ async function authenticateUser(username, password, location) {
 async function populateLocations() {
     const sheetId = '1mle7fv9FiBj2cu7h7LLF-a9JnPbSx-6w1WhjH76CegQ'; // Replace with your sheet ID
     const apiKey = 'AIzaSyDr1hKI4jpsDw4_WfVTt81obTNLgIdU6P4'; // Replace with your API key
-    const RANGE = 'Locations!A1:D'; // Range for Locations sheet
+    const RANGE = 'BranchDetails!A1:O'; // Range for Locations sheet
 
     try {
         const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${RANGE}?key=${apiKey}`);
@@ -93,7 +93,7 @@ async function populateLocations() {
         
         // Assuming column A contains location names and column C contains status
         const locations = data.values
-            .filter(row => row[3] && row[3].toLowerCase() === 'active') // Filter rows where status is 'Active'
+            .filter(row => row[14] && row[14].toLowerCase() === 'active') // Filter rows where status is 'Active'
             .map(row => row[2]); // Get location names from column A
         
         // Populate the dropdown

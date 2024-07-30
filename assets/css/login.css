@@ -1,25 +1,29 @@
+/* styles.css */
+
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #667eea, #764ba2);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
 }
 
 .container {
     background: white;
-    padding: 2rem;
+    padding: 1rem; /* Reduced padding */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
+    max-width: 300px; /* Reduced max-width */
     width: 100%;
     text-align: center;
+    margin: 20px 0; /* Top and bottom margins */
 }
 
 h1 {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem; /* Reduced margin-bottom */
+    font-size: 1.5rem; /* Adjusted font size */
 }
 
 .label-username,
@@ -27,23 +31,27 @@ h1 {
 .label-location {
     display: block;
     text-align: left;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem; /* Reduced margin-bottom */
 }
 
 .input-group {
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem; /* Reduced margin-bottom */
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start (left) */
 }
 
 input[type="text"],
 input[type="password"],
 select {
-    width: 100%;
-    padding: 0.75rem;
+    width: 100%; /* Adjust width to full */
+    padding: 0.5rem; /* Reduced padding */
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin-top: 0.5rem;
+    margin-top: 0.25rem; /* Reduced margin-top */
     font-size: 1rem;
+    max-width: 250px; /* Set a max width for centering */
 }
 
 input[type="text"]::placeholder,
@@ -53,7 +61,7 @@ input[type="password"]::placeholder {
 
 .forgot-password {
     text-align: right;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem; /* Reduced margin-bottom */
 }
 
 .forgot-password a {
@@ -65,7 +73,7 @@ input[type="password"]::placeholder {
 .login-button {
     background: linear-gradient(135deg, #667eea, #764ba2);
     border: none;
-    padding: 0.75rem 1.5rem;
+    padding: 0.5rem 1rem; /* Reduced padding */
     color: white;
     border-radius: 4px;
     cursor: pointer;
@@ -83,7 +91,7 @@ input[type="password"]::placeholder {
 }
 
 .signup-options {
-    margin-top: 2rem;
+    margin-top: 1.5rem; /* Reduced margin-top */
 }
 
 .signup-options p {
@@ -91,7 +99,7 @@ input[type="password"]::placeholder {
 }
 
 .social-buttons a {
-    margin: 0 0.5rem;
+    margin: 0 0.25rem; /* Reduced margin */
     display: inline-block;
 }
 
@@ -100,18 +108,12 @@ input[type="password"]::placeholder {
     height: 32px;
 }
 
-.logo {
-    display: block;
-    margin: 0 auto 1.5rem;
-    width: 100px;
-    height: auto;
-}
 .logo-container {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* Reduced margin-bottom */
 }
 
 .logo {
-    max-width: 100%;
-    height: auto;
+    width: 150px; /* Adjust the width to increase the size */
+    height: auto; /* Maintain the aspect ratio */
 }
