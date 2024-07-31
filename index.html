@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Form</title>
     <link rel="stylesheet" href="assets/css/login.css">
-    <script src="login.js" defer></script>
+    <script src="assets/js/login.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -17,29 +17,39 @@
             <h1>Login</h1>
             <div class="input-group">
                 <label for="username" class="label-username">Username</label>
-                <input type="text" id="username" placeholder="Type your username" required>
+                <input type="text" id="username" placeholder="Type your username" required aria-describedby="username-error">
+                <div id="username-error" class="error-message"></div>
             </div>
             <div class="input-group">
                 <label for="password" class="label-password">Password</label>
-                <input type="password" id="password" placeholder="Type your password" required>
+                <input type="password" id="password" placeholder="Type your password" required aria-describedby="password-error">
+                <div id="password-error" class="error-message"></div>
             </div>
             <div class="input-group">
                 <label for="location" class="label-location">Location</label>
-                <select id="location" required>
+                <select id="location" required aria-describedby="location-error">
                     <option value="">Select a location</option>
+                    <!-- Add location options here -->
                 </select>
+                <div id="location-error" class="error-message"></div>
             </div>
             <div class="forgot-password">
-                <a href="#">Forgot password?</a>
+                <a href="#" aria-label="Forgot password">Forgot password?</a>
             </div>
             <button type="submit" class="login-button">LOGIN</button>
             <div id="message"></div>
             <div class="signup-options">
                 <p>Or Sign Up Using</p> 
                 <div class="social-buttons">
-                    <a href="#"><img src="https://img.icons8.com/color/48/000000/facebook.png" alt="Facebook"></a>
-                    <a href="#"><img src="https://img.icons8.com/color/48/000000/twitter.png" alt="Twitter"></a>
-                    <a href="#"><img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google"></a>
+                    <a href="#" aria-label="Sign up with Facebook">
+                        <img src="https://img.icons8.com/color/48/000000/facebook.png" alt="Facebook">
+                    </a>
+                    <a href="#" aria-label="Sign up with Twitter">
+                        <img src="https://img.icons8.com/color/48/000000/twitter.png" alt="Twitter">
+                    </a>
+                    <a href="#" aria-label="Sign up with Google">
+                        <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google">
+                    </a>
                 </div>
             </div>
         </form>

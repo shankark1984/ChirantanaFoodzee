@@ -19,10 +19,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (isAuthenticated) {
                 message.textContent = 'Login successful!';
                 message.style.color = 'green';
+                // Save the username to localStorage
+                localStorage.setItem('username', username);
                 // Redirect to home.html
-                window.location.href = '/assets/Pages/home.html';
+                window.location.href = 'home.html';
             } else {
-                message.textContent = 'Invalid username, password, or location..';
+                message.textContent = 'Invalid username, password, or location.';
                 message.style.color = 'red';
             }
         } catch (error) {
@@ -56,9 +58,9 @@ async function authenticateUser(username, password, location) {
         const rows = data.values.slice(1);
         
         for (const row of rows) {
-            const sheetUsername = row[4]; // Column D (index 3)
-            const sheetPassword = row[5]; // Column E (index 4)
-            const sheetLocation = row[6]; // Column F (index 5)
+            const sheetUsername = row[4]; // Column D (index 4)
+            const sheetPassword = row[5]; // Column E (index 5)
+            const sheetLocation = row[6]; // Column F (index 6)
             
             if (username === sheetUsername && password === sheetPassword && location === sheetLocation) {
                 return true;
@@ -91,7 +93,7 @@ async function populateLocations() {
             throw new Error('No data returned from Google Sheets');
         }
         
-        // Assuming column A contains location names and column C contains status
+        // Assuming column A contains location names and column O contains status
         const locations = data.values
             .filter(row => row[14] && row[14].toLowerCase() === 'active') // Filter rows where status is 'Active'
             .map(row => row[2]); // Get location names from column A
