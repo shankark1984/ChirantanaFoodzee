@@ -5,12 +5,6 @@
     box-sizing: border-box;
 }
 
-/* Body and general styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-}
-
 /* Top navigation bar styles */
 .top-nav {
     background-color: #333;
@@ -26,9 +20,21 @@ body {
     z-index: 1000;
 }
 
+.top-nav .logo {
+    display: flex;
+    align-items: center;
+}
+
 .top-nav .logo h1 {
     margin: 0;
     font-size: 24px;
+}
+
+.top-nav .hamburger-menu {
+    display: none; /* Hide by default */
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 20px;
 }
 
 .top-right {
@@ -84,6 +90,11 @@ body {
     top: 60px; /* Adjust based on top-nav height */
     bottom: 0;
     overflow-y: auto;
+    transition: transform 0.3s ease;
+}
+
+.sidebar.closed {
+    transform: translateX(-100%);
 }
 
 .sidebar ul {
@@ -175,8 +186,8 @@ body {
 /* Menu container styles */
 .menu-container {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Allows wrapping of menu items */
+    justify-content: space-around; /* Distributes items evenly */
 }
 
 /* Menu item styles */
@@ -247,4 +258,32 @@ body {
 
 .add-to-cart-button:hover {
     opacity: 0.8;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .sidebar {
+        display: none; /* Hide sidebar on small screens */
+    }
+
+    .sidebar.show {
+        display: block; /* Show sidebar when menu is open */
+    }
+
+    .hamburger-menu {
+        display: block; /* Show hamburger menu icon on small screens */
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .content {
+        margin-left: 0;
+    }
+
+    .menu-item {
+        width: 60%; /* Full width for smaller screens */
+        margin: 10px 0; /* Adjust margin for smaller screens */
+    }
 }
