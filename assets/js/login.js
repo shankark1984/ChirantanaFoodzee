@@ -1,16 +1,21 @@
+const sheetId = '1mle7fv9FiBj2cu7h7LLF-a9JnPbSx-6w1WhjH76CegQ'; // Replace with your sheet ID
+const apiKey = 'AIzaSyDr1hKI4jpsDw4_WfVTt81obTNLgIdU6P4'; // Replace with your API key
+const UserRANGE = 'USER!A1:H'; // Range for user data
+const BranchDetailsRANGE = 'BranchDetails!A1:O'; // Range for locations data
+
 document.addEventListener('DOMContentLoaded', async () => {
     const form = document.getElementById('loginForm');
     const message = document.getElementById('message');
     const locationSelect = document.getElementById('location');
     
     // Fetch locations data
-    await populateLocations();
+    await populateLocations(locationSelect);
     
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
         
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value.trim();
         const location = locationSelect.value;
 
         try {
@@ -36,12 +41,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 async function authenticateUser(username, password, location) {
-    const sheetId = '1mle7fv9FiBj2cu7h7LLF-a9JnPbSx-6w1WhjH76CegQ'; // Replace with your sheet ID
-    const apiKey = 'AIzaSyDr1hKI4jpsDw4_WfVTt81obTNLgIdU6P4'; // Replace with your API key
-    const RANGE = 'USER!A1:H'; // Adjust the range if needed
-
     try {
-        const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${RANGE}?key=${apiKey}`);
+        const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${UserRANGE}?key=${apiKey}`);
         
         if (!response.ok) {
             const errorText = await response.text(); // Get error details
@@ -58,9 +59,9 @@ async function authenticateUser(username, password, location) {
         const rows = data.values.slice(1);
         
         for (const row of rows) {
-            const sheetUsername = row[4]; // Column D (index 4)
-            const sheetPassword = row[5]; // Column E (index 5)
-            const sheetLocation = row[6]; // Column F (index 6)
+            const sheetUsername = row[4]; // Column E (index 4)
+            const sheetPassword = row[5]; // Column F (index 5)
+            const sheetLocation = row[6]; // Column G (index 6)
             
             if (username === sheetUsername && password === sheetPassword && location === sheetLocation) {
                 return true;
@@ -74,13 +75,9 @@ async function authenticateUser(username, password, location) {
     }
 }
 
-async function populateLocations() {
-    const sheetId = '1mle7fv9FiBj2cu7h7LLF-a9JnPbSx-6w1WhjH76CegQ'; // Replace with your sheet ID
-    const apiKey = 'AIzaSyDr1hKI4jpsDw4_WfVTt81obTNLgIdU6P4'; // Replace with your API key
-    const RANGE = 'BranchDetails!A1:O'; // Range for Locations sheet
-
+async function populateLocations(locationSelect) {
     try {
-        const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${RANGE}?key=${apiKey}`);
+        const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${BranchDetailsRANGE}?key=${apiKey}`);
         
         if (!response.ok) {
             const errorText = await response.text(); // Get error details
@@ -96,10 +93,9 @@ async function populateLocations() {
         // Assuming column A contains location names and column O contains status
         const locations = data.values
             .filter(row => row[14] && row[14].toLowerCase() === 'active') // Filter rows where status is 'Active'
-            .map(row => row[2]); // Get location names from column A
+            .map(row => row[2]); // Get location names from column C (index 2)
         
         // Populate the dropdown
-        const locationSelect = document.getElementById('location');
         locationSelect.innerHTML = '<option value="">Select a location</option>'; // Clear existing options
         locations.forEach(location => {
             const option = document.createElement('option');

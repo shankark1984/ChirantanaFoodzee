@@ -1,119 +1,110 @@
-/* styles.css */
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    /* background-color: #b85f5f; */
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
     margin: 0;
 }
 
 .container {
-    background: white;
-    padding: 1rem; /* Reduced padding */
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 300px; /* Reduced max-width */
-    width: 100%;
-    text-align: center;
-    margin: 20px 0; /* Top and bottom margins */
-}
-
-h1 {
-    margin-bottom: 1rem; /* Reduced margin-bottom */
-    font-size: 1.5rem; /* Adjusted font size */
-}
-
-.label-username,
-.label-password,
-.label-location {
-    display: block;
-    text-align: left;
-    margin-bottom: 0.25rem; /* Reduced margin-bottom */
-}
-
-.input-group {
-    margin-bottom: 0.75rem; /* Reduced margin-bottom */
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align items to the start (left) */
-}
-
-input[type="text"],
-input[type="password"],
-select {
-    width: 100%; /* Adjust width to full */
-    padding: 0.5rem; /* Reduced padding */
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-top: 0.25rem; /* Reduced margin-top */
-    font-size: 1rem;
-    max-width: 250px; /* Set a max width for centering */
-}
-
-input[type="text"]::placeholder,
-input[type="password"]::placeholder {
-    color: #aaa;
-}
-
-.forgot-password {
-    text-align: right;
-    margin-bottom: 1rem; /* Reduced margin-bottom */
-}
-
-.forgot-password a {
-    color: #667eea;
-    text-decoration: none;
-    font-size: 0.9rem;
-}
-
-.login-button {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    border: none;
-    padding: 0.5rem 1rem; /* Reduced padding */
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background 0.3s ease;
-    width: 100%;
-}
-
-.login-button:hover {
-    background: linear-gradient(135deg, #764ba2, #667eea);
-}
-
-#message {
-    margin-top: 1rem;
-}
-
-.signup-options {
-    margin-top: 1.5rem; /* Reduced margin-top */
-}
-
-.signup-options p {
-    margin-bottom: 0.5rem;
-}
-
-.social-buttons a {
-    margin: 0 0.25rem; /* Reduced margin */
-    display: inline-block;
-}
-
-.social-buttons img {
-    width: 32px;
-    height: 32px;
 }
 
 .logo-container {
     text-align: center;
-    margin-bottom: 15px; /* Reduced margin-bottom */
+    margin-bottom: 20px;
 }
 
 .logo {
-    width: 150px; /* Adjust the width to increase the size */
-    height: auto; /* Maintain the aspect ratio */
+    max-width: 100%;
+}
+
+.login-form h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.forgot-password {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.forgot-password a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+.login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: #218838;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.signup-options {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.signup-options p {
+    margin-bottom: 10px;
+}
+
+.social-buttons a {
+    margin: 0 5px;
+    display: inline-block;
 }
